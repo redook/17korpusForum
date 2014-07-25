@@ -1,0 +1,6 @@
+files/*
+images/avatars/upload/*
+images/characters/*
+cache/*
+.kateproject
+.kateproject.d/
