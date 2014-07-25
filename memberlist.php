@@ -683,6 +683,39 @@ switch ($mode)
 			);
 		}
 
+		
+		//characters mod
+		
+		include($phpbb_root_path . 'includes/constants_characters.' . $phpEx);
+		$sql = 'SELECT character_id, name, role, class, level, species, image, display_on_main_page 
+			FROM ' . CHARACTERS_TABLE .'
+			WHERE user_id = ' .$user_id;
+
+				
+		$result = $db->sql_query($sql);
+		$atLeastOne = false;
+		while ($row = $db->sql_fetchrow($result)) {
+			$template->assign_block_vars('characterrow', array(
+				'CHARACTER_ID'		=> $row['character_id'],
+				'CHARACTER_NAME'		=> $row['name'],
+				'CHARACTER_ROLE'		=> characters_const::$roles[$row['role']],
+				'CHARACTER_ROLE_IMG'		=> $row['role'],
+				'CHARACTER_CLASS'		=> characters_const::$classes[$row['class']],
+				'CHARACTER_CLASS_IMG'		=> $row['class'],
+				'CHARACTER_SPECIES'		=> characters_const::$species[$row['species']],
+				'CHARACTER_SPECIES_IMG'		=> $row['species'],
+				'CHARACTER_LEVEL'		=> characters_const::$levels[$row['level']],
+				'CHARACTER_IMAGE'		=> $row['image'],
+				)
+			);
+			$atLeastOne = true;
+		}
+		$db->sql_freeresult($result);
+		$template->assign_vars(array(
+			'CHARACTERS'	=> $atLeastOne)
+		);
+		
+		
 		// Now generate page title
 		$page_title = sprintf($user->lang['VIEWING_PROFILE'], $member['username']);
 		$template_html = 'memberlist_view.html';

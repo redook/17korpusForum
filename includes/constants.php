@@ -279,5 +279,6 @@ define('ZEBRA_TABLE',				$table_prefix . 'zebra');
 
 // Additional tables
 
-
+define('CHARACTERS_TABLE',				$table_prefix . 'characters');
+define('USER_CHARACTERS_TABLE',				$table_prefix . 'user_characters');
 ?>

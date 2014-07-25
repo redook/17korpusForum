@@ -1,0 +1,48 @@
+<tr><td class="cat" colspan="2" align="center"><h4>{L_CHARACTERS}</h4></td></tr>
+		<tr><td class="row1" colspan="2">
+		<table class="tablebg" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<th>&nbsp;Postac&nbsp;</th>
+				<th>&nbsp;Rola&nbsp;</th>
+				<th>&nbsp;Klasa&nbsp;</th>
+				<th>&nbsp;Level&nbsp;</th>
+			</tr>
+
+			<!-- BEGIN characterrow -->
+				<tr>
+					<td class="row1">
+					<!-- IF characterrow.CHARACTER_SPECIES_IMG --><img alt="{characterrow.CHARACTER_SPECIES}" src="images/icons/swtor/species/{characterrow.CHARACTER_SPECIES_IMG}.png" /><!-- ENDIF -->
+					<!-- IF characterrow.CHARACTER_IMAGE -->
+					<b><a class="fancybox" href="download/character_image.php?character_id={characterrow.CHARACTER_ID}" rel="characters" title="{characterrow.CHARACTER_NAME}">{characterrow.CHARACTER_NAME}</a></b>
+					<!-- ELSE -->
+					<b>{characterrow.CHARACTER_NAME}</b>
+					<!-- ENDIF -->
+					</td>
+					<td class="row1" width="100" align="center">{characterrow.CHARACTER_ROLE}&nbsp;
+						<!-- IF characterrow.CHARACTER_ROLE_IMG --><img alt="{characterrow.CHARACTER_ROLE}" src="images/icons/swtor/{characterrow.CHARACTER_ROLE_IMG}.png" /><!-- ENDIF -->
+					</td>
+					<td class="row1" width="120" align="center">{characterrow.CHARACTER_CLASS}
+						<!-- IF characterrow.CHARACTER_CLASS_IMG --><img alt="{characterrow.CHARACTER_CLASS}" src="images/icons/swtor/classes/{characterrow.CHARACTER_CLASS_IMG}.png" /><!-- ENDIF -->
+					</td>
+					<td class="row1" width="120" align="center">{characterrow.CHARACTER_LEVEL}</td>
+				</tr>
+			<!-- BEGINELSE -->
+				<tr>
+					<td class="row1" colspan="4" height="30" align="center" valign="middle">
+					<span class="gen">
+						Brak postaci
+					</span>
+					</td>
+				</tr>
+			<!-- END characterrow -->
+				<script type="text/javascript">
+					$(".fancybox").fancybox({
+						"type": "image"
+					});
+				</script>
+			<tr>
+				<td class="cat-bottom" colspan="4"></td>
+			</tr>
+			</table>
+		
+</td></tr>

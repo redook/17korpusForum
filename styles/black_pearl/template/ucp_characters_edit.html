@@ -1,0 +1,72 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div><div class="tbl-h-l"><div class="tbl-h-r"><div class="tbl-h-c"><div class="tbl-title">{L_TITLE}</div></div></div></div>
+<table class="tablebg" width="100%" cellpadding="0" cellspacing="0">
+<!-- IF ERROR -->
+	<tr><td class="row3" colspan="2" align="center"><span class="gensmall error">{ERROR}</span></td></tr>
+<!-- ENDIF -->
+<tr><td class="row1" colspan="2"><span class="gensmall">nowa postac</span></td></tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_CHARACTER_NAME}*: </b><br /><span class="gensmall">{L_CHARACTER_NAME_EXPLAIN}</span></td>
+	<td class="row2"><input class="post" type="text" name="name" size="30" maxlength="30" value="{S_CHARACTER_NAME}" /></td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Klasa: </b></td>
+	<td class="row2"><select name="class">
+			{S_CLASS_OPTIONS}
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Rola: </b></td>
+	<td class="row2">
+		<input type="radio" class="radio" name="role" value="tank" <!-- IF S_CHARACTER_ROLE == 'tank' --> checked="checked"<!-- ENDIF -->/><span class="genmed">Tank</span>&nbsp;&nbsp;
+		<input type="radio" class="radio" name="role" value="heal" <!-- IF S_CHARACTER_ROLE == 'heal' --> checked="checked"<!-- ENDIF -->/><span class="genmed">Healer</span>&nbsp;&nbsp;
+		<input type="radio" class="radio" name="role" value="dps" <!-- IF S_CHARACTER_ROLE == 'dps' --> checked="checked"<!-- ENDIF -->/><span class="genmed">DPS</span>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Level: </b></td>
+	<td class="row2"><select name="level">
+			{S_LEVEL_OPTIONS}
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Rasa: </b></td>
+	<td class="row2"><select name="species">
+			{S_SPECIES_OPTIONS}
+		</select>
+	</td>
+</tr>
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Pokazuj na stronie gildii: </b></td>
+	<td class="row2">
+		<input type="radio" class="radio" name="display_on_main_page" value="1"<!-- IF S_DISPLAY_ON_MAIN_PAGE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="display_on_main_page" value="0"<!-- IF not S_DISPLAY_ON_MAIN_PAGE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span>
+	</td>
+</tr>
+
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Screen: </b></td>
+	<td class="row2"><input type="hidden" name="MAX_FILE_SIZE" value="1512000" /><input class="post" type="file" name="uploadfile" /></td>
+</tr>
+<!-- IF S_CHARACTER_IMAGE -->
+<tr>
+	<td class="row1" width="35%"><b class="genmed">Aktualny screen: </b></td>
+	<td class="row2" colspan="2"><a class="fancybox" href="download/character_image.php?character_id={S_CHARACTER_ID}">obraz</a></td>
+	<script type="text/javascript">
+		$(".fancybox").fancybox({
+			"type": "image"
+		});
+	</script>
+</tr>
+<!-- ENDIF -->
+<tr><td class="cat-bottom" colspan="2">
+	{S_HIDDEN_FIELDS}
+	<!-- IF S_CHARACTER_ID --><input type="hidden" name="character_id" value="{S_CHARACTER_ID}" /><!-- ENDIF -->
+	<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" />&nbsp;&nbsp;<!-- IF S_CHARACTER_ID --><input class="btnlite" type="submit" value="{L_DELETE}" name="delete" /><!-- ENDIF -->
+</td></tr>
+</table>
+<div class="tbl-f-l"><div class="tbl-f-r"><div class="tbl-f-c">&nbsp;</div></div></div></div>
+
+<!-- INCLUDE ucp_footer.html -->

@@ -1,6 +1,10 @@
 files/*
+!files/.htaccess
 images/avatars/upload/*
+!images/avatars/upload/.htaccess
 images/characters/*
+!images/characters/.htaccess
 cache/*
 .kateproject
 .kateproject.d/
+!*.htaccess

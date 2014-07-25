@@ -1,0 +1,73 @@
+<!-- INCLUDE ucp_header.html -->
+
+<div id="pagecontent">
+
+<div><div class="tbl-h-l"><div class="tbl-h-r"><div class="tbl-h-c"><div class="tbl-title">&nbsp;</div></div></div></div>
+<table class="tablebg" width="100%" cellpadding="0" cellspacing="0">
+	<!-- IF ERROR -->
+		<tr><td class="row3" colspan="2" align="center"><span class="gensmall error">{ERROR}</span></td></tr>
+	<!-- ENDIF -->
+	<tr>
+		<td class="row1" width="35%"><b class="genmed">Twój nick na strone główną*: </b><br /><span class="gensmall">{L_CHARACTER_NAME_EXPLAIN}</span></td>
+		<td class="row2"><input class="post" type="text" name="main_page_name" size="30" maxlength="30" value="{S_MAIN_PAGE_NAME}" /></td>
+	</tr>
+	<tr>
+		<td class="row1" width="35%"><b class="genmed">Pokazuj moje postacie na stronie gildii: </b></td>
+		<td class="row2">
+			<input type="radio" class="radio" name="display_on_main_page" value="1"<!-- IF S_DISPLAY_ON_MAIN_PAGE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="display_on_main_page" value="0"<!-- IF not S_DISPLAY_ON_MAIN_PAGE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span>
+		</td>
+	</tr>
+	<tr><td class="cat-bottom" colspan="2">
+		{S_HIDDEN_FIELDS}
+		<!-- IF S_CHARACTER_ID --><input type="hidden" name="character_id" value="{S_CHARACTER_ID}" /><!-- ENDIF -->
+		<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" />&nbsp;&nbsp;<!-- IF S_CHARACTER_ID --><input class="btnlite" type="submit" value="{L_DELETE}" name="delete" /><!-- ENDIF -->
+	</td></tr>
+</table>
+
+
+
+<div><div class="tbl-h-l"><div class="tbl-h-r"><div class="tbl-h-c"><div class="tbl-title">&nbsp;</div></div></div></div>
+<table class="tablebg" width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<th>&nbsp;Postac&nbsp;</th>
+		<th>&nbsp;Rola&nbsp;</th>
+		<th>&nbsp;Klasa&nbsp;</th>
+		<th>&nbsp;Level&nbsp;</th>
+	</tr>
+
+	<!-- BEGIN characterrow -->
+	<tr>
+		<td class="row1">
+		<!-- IF characterrow.CHARACTER_SPECIES_IMG --><img alt="{characterrow.CHARACTER_SPECIES}" src="images/icons/swtor/species/{characterrow.CHARACTER_SPECIES_IMG}.png" /><!-- ENDIF -->
+		<b><a href="{characterrow.CHARACTER_EDIT_URL}">{characterrow.CHARACTER_NAME}</a></b></td>
+		<td class="row1" width="100" align="center">{characterrow.CHARACTER_ROLE}&nbsp;
+			<!-- IF characterrow.CHARACTER_ROLE_IMG --><img alt="{characterrow.CHARACTER_ROLE}" src="images/icons/swtor/{characterrow.CHARACTER_ROLE_IMG}.png" /><!-- ENDIF -->
+		</td>
+		<td class="row1" width="120" align="center">{characterrow.CHARACTER_CLASS}
+			<!-- IF characterrow.CHARACTER_CLASS_IMG --><img alt="{characterrow.CHARACTER_CLASS}" src="images/icons/swtor/classes/{characterrow.CHARACTER_CLASS_IMG}.png" /><!-- ENDIF -->
+		</td>
+		<td class="row1" width="120" align="center">{characterrow.CHARACTER_LEVEL}</td>
+		
+	</tr>
+	<!-- BEGINELSE -->
+	<tr>
+		<td class="row1" colspan="4" height="30" align="center" valign="middle">
+		<span class="gen">
+			Brak postaci
+		</span>
+		</td>
+	</tr>
+	<!-- END characterrow -->
+	<tr>
+		<td class="cat-bottom" colspan="5"></td>
+	</tr>
+</table>
+<div class="tbl-f-l"><div class="tbl-f-r"><div class="tbl-f-c">&nbsp;</div></div></div></div>
+
+<div style="padding:2px;"></div>
+
+<br clear="all" />
+
+</div>
+
+<!-- INCLUDE ucp_footer.html -->
