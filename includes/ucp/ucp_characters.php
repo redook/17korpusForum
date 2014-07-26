@@ -177,20 +177,37 @@ class ucp_characters
 						'main_page_name' => request_var('main_page_name', $data['main_page_name']),
 						'display_on_main_page' => request_var('display_on_main_page', $data['display_on_main_page']),
 					);
-					if($row) {
-						
-						$sql = 'UPDATE ' . USER_CHARACTERS_TABLE .' SET ' . $db->sql_build_array('UPDATE', $data) . '
-								WHERE user_id = ' . $user->data['user_id'];
-						
-					} else {
-						$data['user_id'] = $user->data['user_id'];
-						$sql = 'INSERT INTO ' . USER_CHARACTERS_TABLE . $db->sql_build_array('INSERT', $data);
-					}
+					
+					$validate_array = array(
+						'main_page_name'			=> array('string', false, 3, 30),
+						'display_on_main_page'		=> array('num', true, 0, 1)
+					);
+					$error = array();
+					$error = validate_data($data, $validate_array);
+					if (!sizeof($error))
+					{
+						if($row) {
+							
+							$sql = 'UPDATE ' . USER_CHARACTERS_TABLE .' SET ' . $db->sql_build_array('UPDATE', $data) . '
+									WHERE user_id = ' . $user->data['user_id'];
+							
+						} else {
+							$data['user_id'] = $user->data['user_id'];
+							$sql = 'INSERT INTO ' . USER_CHARACTERS_TABLE . $db->sql_build_array('INSERT', $data);
+						}
 
-					$db->sql_query($sql);
-					$meta_info = append_sid("{$phpbb_root_path}ucp.$phpEx", "i=characters&amp;mode=index");
-					$message = 'Zmieniono dane<br /><br />' . sprintf($user->lang['RETURN_CHARACTERS_LIST'], '<a href="' . $meta_info . '">', '</a>');
-					trigger_error($message);
+						$db->sql_query($sql);
+						$meta_info = append_sid("{$phpbb_root_path}ucp.$phpEx", "i=characters&amp;mode=index");
+						$message = 'Zmieniono dane<br /><br />' . sprintf($user->lang['RETURN_CHARACTERS_LIST'], '<a href="' . $meta_info . '">', '</a>');
+						trigger_error($message);
+					} else {
+						$error = preg_replace('#^([A-Z_]+)$#e', "(!empty(\$user->lang['\\1'])) ? \$user->lang['\\1'] : '\\1'", $error);
+						$template->assign_vars(array(
+						'ERROR'			=> (sizeof($error)) ? implode('<br />', $error) : '',
+						'S_MAIN_PAGE_NAME'	=> $data['main_page_name'],
+						'S_DISPLAY_ON_MAIN_PAGE'	=> $data['display_on_main_page'],
+					));
+					}
 				}
 				
 				
