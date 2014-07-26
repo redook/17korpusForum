@@ -5,20 +5,19 @@
 <!-- IF ERROR -->
 	<tr><td class="row3" colspan="2" align="center"><span class="gensmall error">{ERROR}</span></td></tr>
 <!-- ENDIF -->
-<tr><td class="row1" colspan="2"><span class="gensmall">nowa postac</span></td></tr>
 <tr>
 	<td class="row1" width="35%"><b class="genmed">{L_UCP_CHARACTER_NAME}*: </b><br /><span class="gensmall">{L_CHARACTER_NAME_EXPLAIN}</span></td>
 	<td class="row2"><input class="post" type="text" name="name" size="30" maxlength="30" value="{S_CHARACTER_NAME}" /></td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Klasa: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_CHARACTERS_CLASS}: </b></td>
 	<td class="row2"><select name="class">
 			{S_CLASS_OPTIONS}
 		</select>
 	</td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Rola: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_CHARACTERS_ROLE}: </b></td>
 	<td class="row2">
 		<input type="radio" class="radio" name="role" value="tank" <!-- IF S_CHARACTER_ROLE == 'tank' --> checked="checked"<!-- ENDIF -->/><span class="genmed">Tank</span>&nbsp;&nbsp;
 		<input type="radio" class="radio" name="role" value="heal" <!-- IF S_CHARACTER_ROLE == 'heal' --> checked="checked"<!-- ENDIF -->/><span class="genmed">Healer</span>&nbsp;&nbsp;
@@ -26,34 +25,34 @@
 	</td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Level: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_CHARACTERS_LEVEL}: </b></td>
 	<td class="row2"><select name="level">
 			{S_LEVEL_OPTIONS}
 		</select>
 	</td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Rasa: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_CHARACTERS_SPECIES}: </b></td>
 	<td class="row2"><select name="species">
 			{S_SPECIES_OPTIONS}
 		</select>
 	</td>
 </tr>
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Pokazuj na stronie gildii: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_UCP_CHARACTERS_SHOW_CHARACTER_ON_MAIN_PAGE}: </b></td>
 	<td class="row2">
 		<input type="radio" class="radio" name="display_on_main_page" value="1"<!-- IF S_DISPLAY_ON_MAIN_PAGE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_YES}</span>&nbsp; &nbsp;<input type="radio" class="radio" name="display_on_main_page" value="0"<!-- IF not S_DISPLAY_ON_MAIN_PAGE --> checked="checked"<!-- ENDIF --> /><span class="gen">{L_NO}</span>
 	</td>
 </tr>
 
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Screen: </b></td>
+	<td class="row1" width="35%"><b class="genmed">{L_CHARACTERS_SCREEN}: </b></td>
 	<td class="row2"><input type="hidden" name="MAX_FILE_SIZE" value="1512000" /><input class="post" type="file" name="uploadfile" /></td>
 </tr>
 <!-- IF S_CHARACTER_IMAGE -->
 <tr>
-	<td class="row1" width="35%"><b class="genmed">Aktualny screen: </b></td>
-	<td class="row2" colspan="2"><a class="fancybox" href="download/character_image.php?character_id={S_CHARACTER_ID}">obraz</a></td>
+	<td class="row1" width="35%"><b class="genmed">{L_CHARACTERS_CURRENT_SCREEN}: </b></td>
+	<td class="row2" colspan="2"><a class="fancybox" href="download/character_image.php?character_id={S_CHARACTER_ID}">{L_CHARACTERS_IMAGE}</a></td>
 	<script type="text/javascript">
 		$(".fancybox").fancybox({
 			"type": "image"
