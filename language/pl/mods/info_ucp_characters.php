@@ -39,6 +39,7 @@ $lang = array_merge($lang, array(
 	'CHARACTERS'	=> 'Postacie',
 	'UCP_CHARACTERS_INDEX'	=> 'Postacie',
 	'UCP_CHARACTERS_NEW'	=> 'Nowa postać',
+	'UCP_CHARACTERS_TITLE_CHARACTER'	=> 'Postać',
 	'UCP_CHARACTERS_CHARACTER_ADDED'	=> 'Postać została dodana',
 	'UCP_CHARACTERS_CHARACTER_EDITED'	=> 'Postać została zmieniona',
 	'RETURN_CHARACTERS_LIST'	=> '%sPowrót do listy postaci%s',
@@ -48,6 +49,19 @@ $lang = array_merge($lang, array(
 	'DELETE_CHARACTER' => 'Usuń postać',
 	'DELETE_CHARACTER_CONFIRM' => 'Czy na pewno chcesz usunąć tą postać?',
 	'UCP_CHARACTER_NAME'	=> 'Imię postaci',
+	'UCP_CHARACTERS_MAIN_PAGE_NAME'	=> 'Twój nick na stronę gildii',
+	'UCP_CHARACTERS_SHOW_ME_ON_MAIN_PAGE' => 'Pokazuj moje postacie na stronie gildii',
+	'UCP_CHARACTERS_SHOW_CHARACTER_ON_MAIN_PAGE' => 'Pokazuj postać na stronie gildii',
+	'CHARACTERS'	=> 'Postacie',
+	'CHARACTERS_CHARACTER'	=> 'Postać',
+	'CHARACTERS_ROLE'	=> 'Rola',
+	'CHARACTERS_CLASS' => 'Klasa',
+	'CHARACTERS_LEVEL' => 'Level',
+	'CHARACTERS_SPECIES' => 'Rasa',
+	'CHARACTERS_NO_CHARACTERS' => 'Brak postaci',
+	'CHARACTERS_SCREEN'	=> 'Screen',
+	'CHARACTERS_CURRENT_SCREEN'	=> 'Aktualny screen',
+	'CHARACTERS_IMAGE'	=> 'Obraz',
 ));
 
 ?>
