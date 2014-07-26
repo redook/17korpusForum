@@ -19,6 +19,7 @@ while ($row = $db->sql_fetchrow($result)) {
 	$characters[$row['user_id']]['main_page_name'] = $row['main_page_name'];
 }
 $db->sql_freeresult($result);
+$db->sql_close();
 
 header('Content-Type: application/json');
 
